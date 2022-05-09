@@ -1,7 +1,9 @@
+import Header from "./Components/Shared/Header/Header";
+
 function App() {
   return (
     <div className="bg-white h-screen">
-      <h2 className="text-black">This is main</h2>
+      <Header></Header>
     </div>
   );
 }
