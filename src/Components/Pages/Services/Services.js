@@ -24,7 +24,7 @@ const Services = () => {
             img: Img3,
             description: 'Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the',
         }
-    ]
+    ];
     return (
         <div className='mt-20'>
             <div className='text-center'>

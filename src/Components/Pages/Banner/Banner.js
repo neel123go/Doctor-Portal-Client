@@ -1,6 +1,7 @@
 import React from 'react';
 import BackgroundImg from '../../../assets/images/chair.png';
 import Chair from '../../../assets/images/chair.png';
+import Button from '../../Button/Button';
 
 const Banner = () => {
     return (
@@ -13,7 +14,7 @@ const Banner = () => {
                 <div className='w-full md:w-1/2'>
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700">Your New Smile Starts Here</h1>
                     <p className="py-6 text-gray-500 lg:pr-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam distinctio rem veniam minima iusto assumenda commodi ad culpa neque. Ad dolorem amet corrupti</p>
-                    <button className="btn text-white border-0 bg-gradient-to-r from-teal-400 to-cyan-500 hover:bg-gradient-to-l">Get Started</button>
+                    <Button routeName='login'></Button>
                 </div>
             </div>
         </div>
