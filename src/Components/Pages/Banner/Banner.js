@@ -5,8 +5,8 @@ import Chair from '../../../assets/images/chair.png';
 const Banner = () => {
     return (
         <div className="hero min-h-auto" style={{ backgroundImage: `url(${BackgroundImg})` }}>
-            <div className="hero-overlay bg-opacity-90 bg-white"></div>
-            <div className="hero-content flex-col md:flex-row-reverse py-10 md:py-20 lg:py-40">
+            <div className="hero-overlay bg-opacity-95 bg-white"></div>
+            <div className="hero-content flex-col md:flex-row-reverse py-10 md:py-20 lg:py-44">
                 <div className='w-full md:w-1/2'>
                     <img src={Chair} alt="" />
                 </div>

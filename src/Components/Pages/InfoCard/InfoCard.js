@@ -5,7 +5,7 @@ import icon3 from '../../../assets/icons/phone.svg';
 
 const InfoCard = () => {
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-2 xl:px-20 py-10'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-2 xl:px-20 py-15 xl:py-0'>
             <div className="card lg:card-side bg-base-100 shadow-xl px-5 py-5 lg:py-0 text-white bg-gradient-to-r from-teal-400 to-cyan-500">
                 <figure><img src={icon1} alt="Icon1" /></figure>
                 <div className="card-body">
@@ -14,7 +14,7 @@ const InfoCard = () => {
                 </div>
             </div>
 
-            <div className="card lg:card-side bg-base-100 shadow-xl px-5 py-5 lg:py-0 text-white">
+            <div className="card lg:card-side bg-gray-700 shadow-xl px-5 py-5 lg:py-0 text-white">
                 <figure><img src={icon2} alt="Icon2" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Visit our location</h2>
