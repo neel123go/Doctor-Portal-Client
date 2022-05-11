@@ -20,17 +20,3 @@ const DentalCare = () => {
 };
 
 export default DentalCare;
-// <div className='w-full px-20 py-20'>
-//     <div className="card lg:card-side shadow-xl">
-//         <figure className='w-1/3'>
-//             <img src={Image} alt="Treatment" />
-//         </figure>
-//         <div className="card-body w-2/3 flex justify-center items-center px-40">
-//             <div>
-//                 <h2 className="card-title text-gray-700 text-5xl leading-tight">Exceptional Dental Care, on Your Terms</h2>
-//                 <p className='my-10 text-gray-600'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
-//                 <Button routeName='home'></Button>
-//             </div>
-//         </div>
-//     </div>
-// </div>
