@@ -10,7 +10,7 @@ import Login from "./Components/Pages/LoginRegister/Login/Login";
 
 function App() {
   return (
-    <div className="bg-white">
+    <div className="max-w-[1600px] mx-auto">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
