@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import People1 from '../../../assets/images/people1.png';
 import People2 from '../../../assets/images/people2.png';
@@ -8,7 +8,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import './ReviewSlider.css';
 
-import { EffectCoverflow, Pagination } from "swiper";
+import { Autoplay, EffectCoverflow, Pagination } from "swiper";
 import ReviewSliderItem from "../ReviewSliderItem/ReviewSliderItem";
 
 const ReviewSlider = () => {
@@ -61,6 +61,10 @@ const ReviewSlider = () => {
             effect={"coverflow"}
             grabCursor={true}
             centeredSlides={true}
+            autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+            }}
             slidesPerView={"auto"}
             coverflowEffect={{
                 rotate: 50,
@@ -70,7 +74,7 @@ const ReviewSlider = () => {
                 slideShadows: true,
             }}
             pagination={true}
-            modules={[EffectCoverflow, Pagination]}
+            modules={[Autoplay, EffectCoverflow, Pagination]}
             className="mySwiper"
         >
             {
