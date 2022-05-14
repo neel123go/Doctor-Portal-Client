@@ -7,6 +7,8 @@ import Reviews from './Components/Pages/Reviews/Reviews';
 import Contact from './Components/Pages/Contact/Contact';
 import Profile from './Components/Pages/Profile/Profile';
 import Login from "./Components/Pages/LoginRegister/Login/Login";
+import SignUp from "./Components/Pages/LoginRegister/SignUp/SignUp";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -21,7 +23,19 @@ function App() {
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<SignUp></SignUp>}></Route>
       </Routes>
+      <ToastContainer
+        position="top-center"
+        autoClose={2400}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
