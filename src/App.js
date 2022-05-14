@@ -10,6 +10,7 @@ import Login from "./Components/Pages/LoginRegister/Login/Login";
 import SignUp from "./Components/Pages/LoginRegister/SignUp/SignUp";
 import { ToastContainer } from "react-toastify";
 import ForgotPassword from "./Components/Pages/ForgotPassword/ForgotPassword";
+import RequiredAuth from "./Components/Pages/LoginRegister/RequiredAuth/RequiredAuth";
 
 function App() {
   return (
@@ -19,10 +20,18 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/appointment" element={<Appointment></Appointment>}></Route>
+        <Route path="/appointment" element={
+          <RequiredAuth>
+            <Appointment></Appointment>
+          </RequiredAuth>
+        }></Route>
         <Route path="/reviews" element={<Reviews></Reviews>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
-        <Route path="/profile" element={<Profile></Profile>}></Route>
+        <Route path="/profile" element={
+          <RequiredAuth>
+            <Profile></Profile>
+          </RequiredAuth>
+        }></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/forgotPassword" element={<ForgotPassword></ForgotPassword>}></Route>
