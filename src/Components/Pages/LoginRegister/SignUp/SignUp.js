@@ -20,7 +20,7 @@ const SignUp = () => {
 
     useEffect(() => {
         if (user) {
-            navigate('/appointment');
+            navigate('/home');
         }
     }, [user, navigate]);
 
