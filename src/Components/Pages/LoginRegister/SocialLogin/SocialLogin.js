@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
 import SocialLoader from '../../../Pages/Shared/SocialLoader/SocialLoader';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const navigate = useNavigate();
     let errorMessage;
+
+    useEffect(() => {
+        if (user) {
+            navigate('/appointment');
+        }
+    }, [user, navigate]);
 
     if (user) {
         console.log(user);
