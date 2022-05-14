@@ -4,6 +4,7 @@ import CustomLink from '../../CustomLink/CustomLink';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import { signOut } from 'firebase/auth';
+import menuIcon from '../../../../assets/icons/menu.png';
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -13,6 +14,7 @@ const Header = () => {
         <li><div className='bg-transparent'><CustomLink to='/appointment' className="transition ease-linear duration-200 delay-400 py-2 px-6">Appointment</CustomLink></div></li>
         <li><div className='bg-transparent'><CustomLink to='/reviews' className="transition ease-linear duration-200 delay-400 py-2 px-6">Reviews</CustomLink></div></li>
         <li><div className='bg-transparent'><CustomLink to='/contact' className="transition ease-linear duration-200 delay-400 py-2 px-6">Contact Us</CustomLink></div></li>
+        {user && <li><div className='bg-transparent'><CustomLink to='/dashboard' className="transition ease-linear duration-200 delay-400 py-2 px-6">Dashboard</CustomLink></div></li>}
     </>
     return (
         <div className="navbar bg-white md:px-14">
@@ -53,6 +55,7 @@ const Header = () => {
                         </div>
                         : <Link to='/login' className='bg-gradient-to-r from-teal-400 to-cyan-500 hover:bg-gradient-to-l text-white text-xl px-6 rounded-lg py-1'>Login</Link>
                 }
+                <label htmlFor="my-drawer-2" className="mr-5 ml-2 drawer-button lg:hidden"><img src={menuIcon} alt="" /></label>
             </div>
         </div>
     );
