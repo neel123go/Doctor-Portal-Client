@@ -15,7 +15,13 @@ const Header = () => {
         <li><div className='bg-transparent'><CustomLink to='/reviews' className="transition ease-linear duration-200 delay-400 py-2 px-6">Reviews</CustomLink></div></li>
         <li><div className='bg-transparent'><CustomLink to='/contact' className="transition ease-linear duration-200 delay-400 py-2 px-6">Contact Us</CustomLink></div></li>
         {user && <li><div className='bg-transparent'><CustomLink to='/dashboard' className="transition ease-linear duration-200 delay-400 py-2 px-6">Dashboard</CustomLink></div></li>}
-    </>
+    </>;
+
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    };
+
     return (
         <div className="navbar bg-white md:px-14">
             <div className="navbar-start">
@@ -40,7 +46,7 @@ const Header = () => {
                         <div className="dropdown dropdown-end">
                             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user.photoURL} alt="Profile" />
+                                    <img src={user?.photoURL} alt="Profile" />
                                 </div>
                             </label>
                             <ul tabIndex="0" className="mt-3 p-2 drop-shadow-2xl menu menu-compact dropdown-content bg-white rounded-box w-52">
@@ -50,7 +56,7 @@ const Header = () => {
                                         <span className="badge text-xs bg-slate-50 text-gray-400 border-emerald-500">New</span>
                                     </Link>
                                 </li>
-                                <li><button onClick={() => signOut(auth)} className='text-gray-700 active:bg-emerald-100'>Logout</button></li>
+                                <li><button onClick={logout} className='text-gray-700 active:bg-emerald-100'>Logout</button></li>
                             </ul>
                         </div>
                         : <Link to='/login' className='bg-gradient-to-r from-teal-400 to-cyan-500 hover:bg-gradient-to-l text-white text-xl px-6 rounded-lg py-1'>Login</Link>

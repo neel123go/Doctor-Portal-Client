@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const MyAppointments = () => {
     const [user] = useAuthState(auth);
     const [appointments, setAppointments] = useState([]);
-    let count = 1;
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/booking?email=${user.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/booking?email=${user.email}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                }
+                return res.json()
+            })
             .then(data => setAppointments(data))
     }, [user]);
 
@@ -34,7 +47,7 @@ const MyAppointments = () => {
                                 {
                                     appointments.map((a, index) => (
                                         <tr className='border-2' key={index}>
-                                            <th className='bg-slate-100'>{count++}</th>
+                                            <th className='bg-slate-100'>{index + 1}</th>
                                             <td className='bg-slate-100'>{a.patientName}</td>
                                             <td className='bg-slate-100'>{a.treatment}</td>
                                             <td className='bg-slate-100'>{a.slot}</td>
