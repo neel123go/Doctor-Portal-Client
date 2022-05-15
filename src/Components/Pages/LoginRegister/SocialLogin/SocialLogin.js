@@ -2,23 +2,20 @@ import React, { useEffect } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
+import useToken from '../../../../hooks/useToken';
 import SocialLoader from '../../../Pages/Shared/SocialLoader/SocialLoader';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
     let errorMessage;
+    const [token] = useToken(user);
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate('/appointment');
         }
-    }, [user, navigate]);
-
-    if (user) {
-        console.log(user);
-    }
-
+    }, [token, navigate]);
 
     if (loading) {
         return <SocialLoader></SocialLoader>;

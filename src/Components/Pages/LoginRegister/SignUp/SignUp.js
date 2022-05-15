@@ -5,6 +5,7 @@ import auth from '../../../../firebase.init';
 import Loader from '../../Shared/Loader/Loader';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import useToken from '../../../../hooks/useToken';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -17,12 +18,13 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, pUpdateError] = useUpdateProfile(auth);
     const navigate = useNavigate();
+    const [token] = useToken(user);
 
     useEffect(() => {
-        if (user) {
-            navigate('/home');
+        if (token) {
+            navigate('/appointment');
         }
-    }, [user, navigate]);
+    }, [token, navigate]);
 
     const onSubmit = async (data) => {
         await createUserWithEmailAndPassword(data.email, data.password);
