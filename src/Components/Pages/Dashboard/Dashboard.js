@@ -22,7 +22,11 @@ const Dashboard = () => {
                 <ul className="menu p-4 overflow-y-auto w-80 border-r-2 text-base-content">
                     <li><Link to='/dashboard' className='mb-5 bg-gray-700 text-lg hover:bg-gray-800 text-white'>My Appointments</Link></li>
                     <li><Link to='myReviews' className='mb-5 bg-gray-700 text-lg hover:bg-gray-800 text-white'>My Reviews</Link></li>
-                    {admin && <li><Link to='users' className='bg-gray-700 text-lg hover:bg-gray-800 text-white'>All Users</Link></li>}
+                    {admin && <>
+                        <li><Link to='users' className='mb-5 bg-gray-700 text-lg hover:bg-gray-800 text-white'>All Users</Link></li>
+                        <li><Link to='addDoctor' className='mb-5 bg-gray-700 text-lg hover:bg-gray-800 text-white'>Add a new doctor</Link></li>
+                        <li><Link to='manageDoctors' className='bg-gray-700 text-lg hover:bg-gray-800 text-white'>Manage doctors</Link></li>
+                    </>}
                 </ul>
 
             </div>

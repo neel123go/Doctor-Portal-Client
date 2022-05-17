@@ -20,12 +20,11 @@ const BookingModal = ({ treatment, setTreatment, date, refetch }) => {
                 treatment: name,
                 date: formatedDate,
                 slot,
-                patientName: user.displayName,
-                patientEmail: user.email,
+                patientName: user?.displayName,
+                patientEmail: user?.email,
                 patientPhone: phone
             };
-
-            fetch('http://localhost:5000/booking', {
+            fetch('https://intense-headland-27534.herokuapp.com/booking', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -34,14 +33,14 @@ const BookingModal = ({ treatment, setTreatment, date, refetch }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.success === true) {
+                    if (data.success) {
                         toast.success(`Your appointment is booked on ${formatedDate} at ${slot} successfully`);
                         refetch();
                     } else {
                         toast.error(`You already have an appointment on ${data.booking?.date} at ${data.booking?.slot}`);
                     }
+                    setTreatment(null);
                 })
-            setTreatment(null);
         } else {
             setError('Phone number is required');
         }

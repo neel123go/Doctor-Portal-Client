@@ -16,6 +16,8 @@ import MyReviews from "./Components/Pages/Dashboard/MyReviews/MyReviews";
 import MyAppointments from "./Components/Pages/Dashboard/MyAppointments/MyAppointments";
 import AllUsers from "./Components/Pages/Dashboard/AllUsers/AllUsers";
 import RequiredAdmin from './Components/Pages/RequiredAdmin/RequiredAdmin';
+import AddDoctor from "./Components/Pages/Dashboard/AddDoctor/AddDoctor";
+import ManageDoctor from "./Components/Pages/Dashboard/ManageDoctor/ManageDoctor";
 
 function App() {
   return (
@@ -40,6 +42,16 @@ function App() {
           <Route path="users" element={
             <RequiredAdmin>
               <AllUsers></AllUsers>
+            </RequiredAdmin>
+          }></Route>
+          <Route path="addDoctor" element={
+            <RequiredAdmin>
+              <AddDoctor></AddDoctor>
+            </RequiredAdmin>
+          }></Route>
+          <Route path="manageDoctors" element={
+            <RequiredAdmin>
+              <ManageDoctor></ManageDoctor>
             </RequiredAdmin>
           }></Route>
         </Route>
